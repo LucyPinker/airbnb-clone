@@ -2,9 +2,11 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.search-box{
+  width: 50%;
+  display: block;
+  padding: 5px;
+  margin-left: 30px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -24,9 +26,7 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
+
 
 @keyframes App-logo-spin {
   from {
