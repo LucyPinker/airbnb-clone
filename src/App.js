@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 import Result from './components/result';
 import User from './components/user';
 import { GoRepo, GoProject, GoBook } from "react-icons/go";
