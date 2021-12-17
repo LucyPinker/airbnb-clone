@@ -24,7 +24,6 @@ class App extends Component {
           ...this.state,
           userDetails: data,
         })
-        console.log(this.state.userDetails)
       })
     fetch("https://api.github.com/users/LucyPinker/repos")
       .then(response => response.json())
