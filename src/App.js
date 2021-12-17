@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import Result from './components/result';
 import User from './components/user';
+import { GoRepo, GoProject, GoBook } from "react-icons/go";
+
 import './App.css';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userDetails: [],
+      userDetails: {},
       results: [],
       allResults: [],
       search: ""
@@ -19,13 +21,16 @@ class App extends Component {
       .then(response => response.json())
       .then((data) => {
         this.setState({
+          ...this.state,
           userDetails: data,
         })
+        console.log(this.state.userDetails)
       })
     fetch("https://api.github.com/users/LucyPinker/repos")
       .then(response => response.json())
       .then((data) => {
         this.setState({
+          ...this.state,
           allResults: data,
           results: data,
         })
@@ -43,28 +48,21 @@ class App extends Component {
     return (
       <div className ="app" >
         <div className="main">
-          <div className="user">
-            <img src={this.state.userDetails.avatar_url} className="user-img" alt="user avatar" />
-            <h4 className="user-name">{this.state.userDetails.name}</h4>
-            <a href={this.state.userDetails.html_url}>{this.state.userDetails.html_url}</a>
-            <div className="user-details">
-              <p className="user-detail"> Following: {this.state.userDetails.followers}</p>
-              <p className="user-detail"> Following: {this.state.userDetails.following}</p>
-              <p className="user-detail"> Public Repos: {this.state.userDetails.public_repos}</p>
-            </div>
-          </div>
-
+          <User userDetails={this.state.userDetails} />
           <div className="search">
             <input className="search-box" type="text" placeholder="Search repos..." value={this.state.search}
               onChange={this.handleSearch} />
           </div>
-
+          <div className="options" >
+            <div className="option"><GoBook className='icon' />Overview</div>
+            <div className="option"><GoRepo className='icon' />Repositories (<strong>{this.state.userDetails.public_repos}</strong>)</div>
+            <div className="option"><GoProject className='icon' />Projects</div>
+          </div>
           <div className="results">
             {this.state.results.map((result) => {
-              return <p className="result-item"><Result key={result.name} result={result} /></p>
+              return <Result result={result} key={result.name}/>
             })}
           </div>
-
         </div>
       </div>
     );
