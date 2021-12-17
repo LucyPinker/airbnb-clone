@@ -5,8 +5,25 @@
 }
 
 .result-item{
+  background-color: #292630;
+  color: aliceblue;
   margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 15px 0px 15px 30px;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0, .8);
+  width: calc(100% - 40px);
+}
+
+.result-name {
+  font-size: 20px;
+}
+
+.result-description{
+  color: #6e6b74;
+  padding-top: 10px;
+}
+
+.result-language{
+  font-size: 15px;
+  padding-top: 20px;
 }

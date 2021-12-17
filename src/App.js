@@ -44,12 +44,13 @@ class App extends Component {
       <div className ="app" >
         <div className="main">
           <div className="user">
-            <img src={this.state.userDetails.avatar_url} className="user-img" />
+            <img src={this.state.userDetails.avatar_url} className="user-img" alt="user avatar" />
             <h4 className="user-name">{this.state.userDetails.name}</h4>
+            <a href={this.state.userDetails.html_url}>{this.state.userDetails.html_url}</a>
             <div className="user-details">
-            <p className="user-detail"> Followers: {this.state.userDetails.followers}</p>
-            <p className="user-detail"> Following: {this.state.userDetails.following}</p>
-            <p className="user-detail"> Public Repos: {this.state.userDetails.public_repos}</p>
+              <p className="user-detail"> Following: {this.state.userDetails.followers}</p>
+              <p className="user-detail"> Following: {this.state.userDetails.following}</p>
+              <p className="user-detail"> Public Repos: {this.state.userDetails.public_repos}</p>
             </div>
           </div>
 
